@@ -6,10 +6,10 @@
 %global author pvermeer
 %global source steam-steamos
 %global sourcerepo https://github.com/PVermeer/steam-steamos
-%global tag v0.0.2
+%global tag v0.0.3
 
 Name: steam-steamos
-Version: 0.0.2
+Version: 0.0.3
 Release: 0%{?dist}
 License: GPL-3.0 license
 Summary: Launch steam as it would on steamOS on desktop or as nested gamescope-session.

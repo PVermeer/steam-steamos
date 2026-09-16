@@ -5,7 +5,7 @@
 # Source repo
 %global author pvermeer
 %global source steam-steamos
-%global sourcerepo https://github.com/PVermeer/copr_steamos-steam
+%global sourcerepo https://github.com/PVermeer/steam-steamos
 %global tag v0.0.2
 
 Name: steam-steamos
@@ -50,15 +50,21 @@ cd %{sourcedir}
 rm -rf .git
 cd %{workdir}
 
-%install
-mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_datadir}/applications/
+%define license_dir %{_licensedir}/%{name}
 
-install -D -m 0755 %{sourcedir}/src/steam-steamos %{buildroot}%{_bindir}
-install -D -m 0644 %{sourcedir}/assets/steam-steamos.desktop %{buildroot}%{_datadir}/applications
-install -D -m 0644 %{sourcedir}/assets/steam-steamos-gamescope.desktop %{buildroot}%{_datadir}/applications
+%install
+mkdir -p %{buildroot}/%{license_dir}
+mkdir -p %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}/%{_datadir}/applications/
+
+install -m 0644 %{sourcedir}/LICENSE %{buildroot}/%{license_dir}/LICENSE
+
+install -D -m 0755 %{sourcedir}/src/steam-steamos %{buildroot}/%{_bindir}
+install -D -m 0644 %{sourcedir}/assets/steam-steamos.desktop %{buildroot}/%{_datadir}/applications
+install -D -m 0644 %{sourcedir}/assets/steam-steamos-gamescope.desktop %{buildroot}/%{_datadir}/applications
 
 %files
+%license %{license_dir}/LICENSE
 %{_bindir}/steam-steamos
 %{_datadir}/applications/steam-steamos.desktop
 %{_datadir}/applications/steam-steamos-gamescope.desktop

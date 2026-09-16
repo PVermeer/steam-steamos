@@ -10,7 +10,7 @@
 
 Name: steam-steamos
 Version: 0.0.3
-Release: 0%{?dist}
+Release: 1%{?dist}
 License: GPL-3.0 license
 Summary: Launch steam as it would on steamOS on desktop or as nested gamescope-session.
 Url: %{sourcerepo}
